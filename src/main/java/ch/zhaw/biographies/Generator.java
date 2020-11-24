@@ -1,10 +1,13 @@
 package ch.zhaw.biographies;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
+import ch.zhaw.wikipedia.WikiApi;
+
 public class Generator {
-  private final String[] female = new String[] {
+  private static final String[] female = new String[] {
       "__NAME__ was born in __BIRTHCITY__ and lived in __COUNTRYNAME__. She was born in __BIRTHYEAR__ and worked as a __OCCUPATION__.",
       "__NAME__ was originally born in __BIRTHCITY__ and lived in __COUNTRYNAME__. She was born in __BIRTHYEAR__ and worked as a __OCCUPATION__.",
       "The birthplace of __NAME__ is in __BIRTHCITY__. She was born in __BIRTHYEAR__ and worked as a __OCCUPATION__. She used to live in __COUNTRYNAME__.",
@@ -36,7 +39,7 @@ public class Generator {
       "__NAME__ worked as a __OCCUPATION__ and lived in __COUNTRYNAME__. She was born in __BIRTHYEAR__ and grew up in __BIRTHCITY__.",
       "__NAME__ was a __OCCUPATION__ who worked and lived in __COUNTRYNAME__. She was born in __BIRTHYEAR__ and raised in __BIRTHCITY__." };
 
-  private final String[] male = new String[] {
+  private static final String[] male = new String[] {
       "__NAME__ was born in __BIRTHCITY__ and lived in __COUNTRYNAME__. He was born in __BIRTHYEAR__ and worked as a __OCCUPATION__.",
       "__NAME__ was originally born in __BIRTHCITY__ and lived in __COUNTRYNAME__. He was born in __BIRTHYEAR__ and worked as a __OCCUPATION__.",
       "The birthplace of __NAME__ is in __BIRTHCITY__. He was born in __BIRTHYEAR__ and worked as a __OCCUPATION__. He used to live in __COUNTRYNAME__.",
@@ -71,16 +74,35 @@ public class Generator {
   public Generator() {
   }
 
-  public List<Person> generateBiographies(List<Person> people) {
+  public static List<Person> generateBiographiesFromTemplates(List<Person> people) {
     HashMap<String, String[]> templates = new HashMap<String, String[]>();
-    templates.put("male", this.male);
-    templates.put("female", this.female);
+    templates.put("male", Generator.male);
+    templates.put("female", Generator.female);
 
     for (Person person : people) {
       person.createBiography(templates);
     }
 
     return people;
+  }
+
+  public static List<Person> generateBiographiesFromWiki(List<Person> people, Integer sentences) {
+    for (Person person : people) {
+      person.setBiography(WikiApi.get(person.name, sentences));
+    }
+
+    return people;
+  }
+
+  public static void generateBiographiesFromWiki(List<Person> people, Integer sentences, FileHandler handler, String version) {
+    for (Person person : people) {
+      person.setBiography(WikiApi.get(person.name, sentences));
+      try {
+        handler.writeToFile(person, version);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }
   }
 
 }

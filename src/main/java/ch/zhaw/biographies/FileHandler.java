@@ -69,37 +69,47 @@ public class FileHandler {
     fileB2F = this.__ROOT_PATH + fileB2F.replace("__FILE_VERSION", version);
 
     for (Person person : people) {
-      BufferedWriter writer = new BufferedWriter(new FileWriter(fileF2B, true));
-      writer.append("<|startoftext|>");
-      writer.newLine();
-      writer.append("[FACTS_PROMPT]");
-      writer.newLine();
-      writer.append(person.getFacts());
-      writer.append("[BIOGRAPHY_PROMPT]");
-      writer.newLine();
-      writer.append(person.getBiography());
-      writer.newLine();
-      writer.append("<|endoftext|>");
-      writer.newLine();
-      writer.append("");
-      writer.newLine();
-      writer.close();
-
-      writer = new BufferedWriter(new FileWriter(fileB2F, true));
-      writer.append("<|startoftext|>");
-      writer.newLine();
-      writer.append("[BIOGRAPHY_PROMPT]");
-      writer.newLine();
-      writer.append(person.getBiography());
-      writer.newLine();
-      writer.append("[FACTS_PROMPT]");
-      writer.newLine();
-      writer.append(person.getFacts());
-      writer.append("<|endoftext|>");
-      writer.newLine();
-      writer.append("");
-      writer.newLine();
-      writer.close();
+      this.writeToFile(person, version);
     }
+  }
+
+  public void writeToFile(Person person, String version) throws IOException {
+    String fileF2B = this.__TEST ? this.__FILE_F2B__TEST : this.__FILE_F2B;
+    String fileB2F = this.__TEST ? this.__FILE_B2F__TEST : this.__FILE_B2F;
+
+    fileF2B = this.__ROOT_PATH + fileF2B.replace("__FILE_VERSION", version);
+    fileB2F = this.__ROOT_PATH + fileB2F.replace("__FILE_VERSION", version);
+
+    BufferedWriter writer = new BufferedWriter(new FileWriter(fileF2B, true));
+    writer.append("<|startoftext|>");
+    writer.newLine();
+    writer.append("[FACTS_PROMPT]");
+    writer.newLine();
+    writer.append(person.getFacts());
+    writer.append("[BIOGRAPHY_PROMPT]");
+    writer.newLine();
+    writer.append(person.getBiography());
+    writer.newLine();
+    writer.append("<|endoftext|>");
+    writer.newLine();
+    writer.append("");
+    writer.newLine();
+    writer.close();
+
+    writer = new BufferedWriter(new FileWriter(fileB2F, true));
+    writer.append("<|startoftext|>");
+    writer.newLine();
+    writer.append("[BIOGRAPHY_PROMPT]");
+    writer.newLine();
+    writer.append(person.getBiography());
+    writer.newLine();
+    writer.append("[FACTS_PROMPT]");
+    writer.newLine();
+    writer.append(person.getFacts());
+    writer.append("<|endoftext|>");
+    writer.newLine();
+    writer.append("");
+    writer.newLine();
+    writer.close();
   }
 }

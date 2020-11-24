@@ -34,7 +34,6 @@ public class ExtractionScript {
 		SyndFeed feed = input.build(new XmlReader(feedSource));
 
 		String title;
-		String content;
 		CoreDocument document;
 		for (Object current : feed.getEntries()) {
 			// 1. Extract text from RSS item

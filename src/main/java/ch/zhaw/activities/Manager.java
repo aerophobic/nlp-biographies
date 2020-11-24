@@ -1,24 +1,16 @@
 package ch.zhaw.activities;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
-
-import edu.stanford.nlp.ie.util.RelationTriple;
-import edu.stanford.nlp.util.Pair;
-
-import com.sun.syndication.io.XmlReader;
 
 import org.camunda.bpm.model.bpmn.Bpmn;
 import org.camunda.bpm.model.bpmn.BpmnModelInstance;
-import org.camunda.bpm.model.bpmn.builder.ProcessBuilder;
 import org.camunda.bpm.model.bpmn.builder.StartEventBuilder;
 import org.camunda.bpm.model.bpmn.builder.UserTaskBuilder;
+
+import edu.stanford.nlp.ie.util.RelationTriple;
+import edu.stanford.nlp.util.Pair;
 
 public class Manager {
 

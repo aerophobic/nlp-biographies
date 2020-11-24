@@ -25,6 +25,10 @@ public class Person {
     this.gender = gender;
   }
 
+  public void setBiography(String biography) {
+    this.biography = biography;
+  }
+
   public String getBiography() {
     return this.biography;
   }
@@ -47,7 +51,7 @@ public class Person {
     template = template.replace("__COUNTRYNAME__", this.countryName);
     template = template.replace("__OCCUPATION__", this.occupation);
 
-    this.biography = template;
+    this.setBiography(template);
   }
 
   public String getFacts() {

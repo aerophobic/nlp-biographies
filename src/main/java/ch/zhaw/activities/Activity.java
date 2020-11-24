@@ -1,9 +1,7 @@
 package ch.zhaw.activities;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map.Entry;
 
 import edu.stanford.nlp.ie.util.RelationTriple;
 import edu.stanford.nlp.util.Pair;
