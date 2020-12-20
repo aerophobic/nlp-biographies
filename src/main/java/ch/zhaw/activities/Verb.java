@@ -7,10 +7,6 @@ import java.util.List;
 import edu.stanford.nlp.util.Pair;
 
 public class Verb {
-  // list of pairs e.g. ArrayList() {
-  // new Pair([fraction, tube], [5, minute]),
-  // new Pair([pool, fraction, tube], [5, minute]),
-  // }
   private List<Pair<List<String>, List<String>>> pairs;
   // name e.g. placeTubeIn
   private String name;

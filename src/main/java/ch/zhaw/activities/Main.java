@@ -38,61 +38,9 @@ public class Main {
 	private static final String __FILE_G2A = "Guides2Activities.txt";
 	private static final String __FILE_A2G = "Activities2Guides.txt";
 
-	// private static final String[] SOURCES = new String[] { new
-	// String("https://www.democracynow.org/democracynow.rss"),
-	// new String("http://feeds.bbci.co.uk/news/world/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/business/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/politics/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/health/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/education/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/science_and_environment/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/technology/rss.xml"),
-	// new String("http://feeds.bbci.co.uk/news/entertainment_and_arts/rss.xml"),
-	// new String("http://rss.cnn.com/rss/edition_world.rss"), new
-	// String("http://rss.cnn.com/rss/edition.rss"),
-	// new String("http://rss.cnn.com/rss/cnn_latest.rss"),
-	// new String("http://rss.cnn.com/rss/money_news_international.rss"),
-	// new String("http://rss.cnn.com/rss/money_latest.rss"),
-	// new String("http://rss.cnn.com/rss/edition_technology.rss"),
-	// new String("http://rss.cnn.com/rss/edition_space.rss"),
-	// new String("http://rss.cnn.com/rss/edition_entertainment.rss"),
-	// new String("http://rss.cnn.com/rss/cnn_allpolitics.rss"), new
-	// String("http://rss.cnn.com/rss/cnn_tech.rss"),
-	// new String("http://rss.cnn.com/rss/cnn_health.rss"), new
-	// String("http://rss.cnn.com/rss/cnn_showbiz.rss"),
-	// new String("http://rss.cnn.com/cnn-underscored.rss"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/World.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Economy.xml"),
-	// new
-	// String("https://rss.nytimes.com/services/xml/rss/nyt/EnergyEnvironment.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Business.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Technology.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/PersonalTech.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Science.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Climate.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/Space.xml"),
-	// // new String("https://www.nytimes.com/services/xml/rss/nyt/Health.xml"),
-	// new String("https://rss.nytimes.com/services/xml/rss/nyt/sunday-review.xml")
-	// };
-
 	public static Manager mgmt;
 
 	public static void main(String[] args) throws IllegalArgumentException, FeedException, IOException {
-
-		// URL feedSource = new URL("https://www.democracynow.org/democracynow.rss");
-
-		// outer loop variables
-		URL feedSource;
-		SyndFeedInput input;
-		SyndFeed feed;
-
-		// inner loop variables
-		SyndEntry entry;
-		SyndContent description;
-		String text;
-
 		mgmt = new Manager();
 
 		String fileRoot = "C:\\Projekte\\zhaw\\int\\nlp-starter\\protocols";
@@ -143,10 +91,7 @@ public class Main {
 		Extractor extractor;
 
 		try {
-			// mgmt.addNewSet();
 			extractor = new Extractor(mgmt);
-
-			// text = reMatcher.group();
 
 			extractor.getCorefs(text);
 			// Main.writeToFile(text, mgmt.toString());

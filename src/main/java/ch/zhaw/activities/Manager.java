@@ -23,26 +23,6 @@ public class Manager {
 		this.activities = new ArrayList<Activity>();
 	}
 
-	// public void addNewSet() {
-	// this.activities.add(new Activity());
-	// }
-
-	// public void store(String fact, String arg) {
-	// String factKey = cleanUp(fact);
-	// String argClean = cleanUp(arg);
-
-	// // forward storage
-	// if (!this.activities.containsKey(factKey)) {
-	// this.activities.put(factKey, new Activity(factKey));
-	// }
-	// this.activities.get(this.activities.size() - 1).addVerb(factKey, argClean);
-
-	// List<String> values = this.unaryFacts.get(this.index).get(factKey);
-	// if (!Manager.contains(values, argClean)) {
-	// values.add(argClean);
-	// }
-	// }
-
 	public void addActivity(String name) {
 		this.activities.add(new Activity(name));
 	}
@@ -70,63 +50,11 @@ public class Manager {
 		this.activities.get(this.activities.size() - 1).addTriple(triple);
 	}
 
-	// public String toString() {
-	// StringBuffer result = new StringBuffer();
-	// for (String key : this.unaryFacts.get(this.index).keySet()) {
-	// List<String> values = this.unaryFacts.get(this.index).get(key);
-	// for (String value : values) {
-	// result.append(key + "(" + value + ")." + Manager.EOL);
-	// }
-	// }
-	// for (String key : this.binaryFacts.get(this.index).keySet()) {
-	// List<Pair<List<String>, List<String>>> values =
-	// this.binaryFacts.get(this.index).get(key);
-	// for (Pair<List<String>, List<String>> value : values) {
-	// result.append(key + "(" + value.first + ", " + value.second + ")." +
-	// Manager.EOL);
-	// }
-	// }
-	// return result.toString();
-	// }
-
-	// static int getUnifiedPairs(List<Pair<String, String>> pairs) {
-	// List<Pair<String, String>> unifiedPairs = null;
-
-	// for (Pair<String, String> pair : pairs) {
-	// HashSet<List> set = new HashSet<List>();
-	// set.addAll(Arrays.asList(firstArray));
-	// set.addAll(Arrays.asList(secondArray));
-
-	// // convert to array
-	// List<Pair<String, String>> union = new ArrayList<Pair<String, String>>();
-
-	// union = set.toArray(union);
-
-	// return unifiedPairs;
-	// }
-
-	// return 0;
-	// }
-
 	public String toBpmnXml(List<Activity> activities) {
 		StartEventBuilder startEventBuilder = Bpmn.createProcess().name("Example	process").executable().startEvent();
 		UserTaskBuilder userTaskBuilder = null;
 
 		for (Activity activity : activities) {
-			// Collection<Verb> verbs = activity.verbs().values();
-			// for (Verb verb : verbs) {
-			// String name = String.join(", ", verb.name());
-			// String subjects = String.join(", ", verb.subjects());
-			// String objects = String.join(", ", verb.objects());
-
-			// if (userTaskBuilder == null) {
-			// userTaskBuilder = startEventBuilder.userTask().name(name + "(" + subjects + "
-			// || " + objects + ")");
-			// } else {
-			// userTaskBuilder = userTaskBuilder.userTask().name(name + "(" + subjects + "
-			// || " + objects + ")");
-			// }
-			// }
 			if (activity.getActivityName() != null) {
 				if (userTaskBuilder == null) {
 					userTaskBuilder = startEventBuilder.userTask().name(activity.getActivityName());

@@ -90,16 +90,6 @@ public class Extractor {
 					System.out.println(consti);
 				}
 			}
-			// System.out.println(sentence.tokensAsStrings());
-			// for (CoreLabel token : sentence.tokens()) {
-			// System.out.println(token.tag());
-			// if (token.tag().equals("VB")) {
-			// System.out.println("its a verb");
-			// }
-			// }
-			// for(String verbPhrase : sentence.verbPhrases()) {
-			// System.out.println(verbPhrase);
-			// }
 		}
 		System.out.println("----end of-------- find the fuking verb");
 
@@ -125,10 +115,6 @@ public class Extractor {
 					System.out.println(tripleInMap.relationLemmaGloss());
 					System.out.println(triple.relationLemmaGloss());
 
-					// Boolean hasSameRelation = tripleInMap.relationLemmaGloss() ==
-					// triple.relationLemmaGloss();
-					// System.out.println("\thave same relation");
-					// System.out.println("\t" + hasSameRelation);
 					Boolean hasCommonObjectElements = Collections.disjoint(
 							Arrays.asList(tripleInMap.objectLemmaGloss().split(" ")),
 							Arrays.asList(triple.objectLemmaGloss().split(" ")));
