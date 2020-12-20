@@ -32,3 +32,4 @@ public class Main {
     Generator.generateBiographiesFromWiki(people, sentences, handler, "7.0.0__wiki");
   }
 }
+
