@@ -64,6 +64,12 @@ public class Person {
     pairs.put("occupation", this.occupation);
     pairs.put("gender", this.gender);
 
+    // String facts = "\n";
+
+    // for (Entry<String, String> pair : pairs.entrySet()) {
+    //   facts += "    <" + pair.getKey() + ">" + pair.getValue() + "</" + pair.getKey() + ">\n";
+    // }
+
     String facts = "";
 
     for (Entry<String, String> pair : pairs.entrySet()) {

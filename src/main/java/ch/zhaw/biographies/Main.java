@@ -12,10 +12,10 @@ public class Main {
 
     // option 1:
     // generate from templates...
-    // Generator.generateBiographiesFromTemplates(people);
+    Generator.generateBiographiesFromTemplates(people);
 
     // ...and write all people to file
-    // handler.writeToFile(people, "4.0.0");
+    handler.writeToFile(people, "7.0.0__templates");
 
     // option 2:
     // Integer sentences = 3;
@@ -29,6 +29,6 @@ public class Main {
     // option 3:
     Integer sentences = 3;
     // write after each wiki request
-    Generator.generateBiographiesFromWiki(people, sentences, handler, "5.0.0");
+    Generator.generateBiographiesFromWiki(people, sentences, handler, "7.0.0__wiki");
   }
 }
